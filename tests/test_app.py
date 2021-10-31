@@ -1,4 +1,6 @@
-from "../src/app" import index
+import sys
+sys.path.append('../')
+from "src/app" import index
 
 
 def test_index():
