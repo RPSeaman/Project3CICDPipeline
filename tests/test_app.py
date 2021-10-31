@@ -1,7 +1,6 @@
-
-from 'app.py' import index
+import '../src/app.py' as app
 
 
 def test_index():
-    assert index() == "hello, world!"
+    assert app.index() == "hello, world!"
  
