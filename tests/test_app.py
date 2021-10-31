@@ -1,4 +1,5 @@
-from '../src/app.py' import index
+
+from 'app.py' import index
 
 
 def test_index():
