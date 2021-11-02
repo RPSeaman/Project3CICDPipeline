@@ -2,5 +2,5 @@ from app import index
 #ds
 
 def test_index():
-    assert index() == "hello, world!"
+    assert index() == "Welcome to the App in bare-bone state!"
  
