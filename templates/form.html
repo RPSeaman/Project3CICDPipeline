@@ -21,6 +21,37 @@
             document.getElementById('Time').innerHTML=theTime;
             document.getElementById('DateTime').innerHTML=dateTime;
             </script>
+
+            <label for="status">Task Status:</label>
+
+            <select name="status" id="status">
+                <option value="to do">TO DO</option>
+                <option value="started">IN PROGRESS</option>
+                <option value="done">DONE</option>
+            </select>
+
+            <label for="priority">Priority:</label>
+
+            <select name="priority" id="priority" onchange="colorChange(this.options[this.selectedIndex].value);">
+                <option value="red">HIGH</option>
+                <option value="orange">MEDIUM</option>
+                <option value="green">LOW</option>
+            </select>
+            <p>Words <span id='test'></span></p>
+            
+            <script>
+            var theTest = "all of them";
+            document.getElementById('test').innerHTML=theTest;
+
+            function colorChange(c) 
+            {
+                document.getElementById("test").style.color = c;
+            }
+
+            </script>
+
+        <p>Words <span id='test'></span></p>
+
         <form>
             <div>
                 <label for = "title">Visitor log</label>
