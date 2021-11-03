@@ -3,14 +3,16 @@
         <title>{"Hello!"}</title>
     </head>
     <body>
-        <h1>Hello there!</h1>
         <br>
-        <form>
+        <form action = "/add" method ="post">
             <div>
-                <label for = "title">Visitor log</label>
-                <input type = "text" name = "visitor" placeholder = "Enter">
+                <label for = "title">Add to do item</label>
+                <input type = "text" name = "task" placeholder = "Item">
                 <button type = "submit">Add</button>
             </div>
         </form>
+        {% for i in tasks %}
+            <p>{{i}}</p>
+        {% endfor %}
     </body>
 </html>
