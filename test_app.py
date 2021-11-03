@@ -1,4 +1,4 @@
-from app import index
+from app import *
 #ds
 
 def test_index():

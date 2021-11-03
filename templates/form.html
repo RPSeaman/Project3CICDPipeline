@@ -3,8 +3,13 @@
         <title>{"Hello!"}</title>
     </head>
     <body>
-        <h1>Hello there!</h1>
+        <h1>Hello there.</h1>
         <br>
+        <p>Current Date and Time is <span id='date-time'></span>.</p>
+            <script>
+            var dt = new Date();
+            document.getElementById('date-time').innerHTML=dt;
+            </script>
         <form>
             <div>
                 <label for = "title">Visitor log</label>
