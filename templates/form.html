@@ -21,12 +21,17 @@
             document.getElementById('Time').innerHTML=theTime;
             document.getElementById('DateTime').innerHTML=dateTime;
             </script>
-        <form action="/add",method="post">
+        <form action="/add" method="post">
             <div>
                 <label for = "title">Visitor log</label>
-                <input type = "text" name = "visitor" placeholder = "Enter">
+                <input type = "text" name = "task" placeholder = "Enter">
                 <button type = "submit">Add</button>
             </div>
         </form>
+        {% for i in tasks %}
+            <p> {{i}} </p>
+            <a href="/remove/{{i}}">remove</a>
+                
+        {% endfor %}
     </body>
 </html>
