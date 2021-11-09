@@ -15,6 +15,9 @@ class Task:
     def getTags(self):
         return self.tags
     
+    def addTag(self,tag):
+        self.tags.append(tag)
+        
     def tagsToString(self):
         toReturn = ""
         for i in range(len(self.getTags())):

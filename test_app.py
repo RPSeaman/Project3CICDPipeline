@@ -1,4 +1,5 @@
 from app import *
+import task
 #ds
 
 # websitePath = https://rh-to-do-list.herokuapp.com
@@ -11,3 +12,51 @@ def test_index():
     client = app.test_client()
     response = client.get("/")
     assert response.status_code == 200
+
+def test_add():
+    client = app.test_client()
+    response = client.get("/")
+    webpage_text = response.get_data()
+    url = '/add'
+    newTask = {'task':'test'}
+    response = client.post(url, data=newTask)
+    assert response.status_code == 302
+    response = client.get("/")
+    webpage_text = response.get_data()
+    assert b'test' in webpage_text
+
+def test_remove():
+    client = app.test_client()
+    response = client.get("/")
+    webpage_text = response.get_data()
+    url = '/add'
+    newTask = {'task':'test'}
+    response = client.post(url, data=newTask)
+    assert response.status_code == 302
+    response = client.get("/")
+    webpage_text = response.get_data()
+    assert b'test' in webpage_text
+    url = '/remove/test'
+    response = client.get(url)
+    webpage_text = response.get_data()
+    assert (b'test' not in webpage_text)
+
+def test_addTag():
+    client = app.test_client()
+    response = client.get("/")
+    webpage_text = response.get_data()
+    url = '/add'
+    newTask = {'task':'test'}
+    response = client.post(url, data=newTask)
+    assert response.status_code == 302
+    response = client.get("/")
+    webpage_text = response.get_data()
+
+    
+    assert b'test' in webpage_text
+    url = '/addTag/test'
+    newTag = {'test':'testTag'}
+    response = client.post(url,data=newTag)
+    response = client.get("/")
+    webpage_text = response.get_data()
+    assert (b'testTag' in webpage_text)

@@ -7,14 +7,12 @@ tasks =[]
 
 @app.route("/") 
 def index():
+    user = {'username':'test'}
     return render_template("form.html",tasks = tasks)
 
 @app.route("/add", methods=["POST"])
 def add():
-
-    
     title = request.form.get("task")
-    print(title)
     newTask = task.Task(title,[])
     tasks.append(newTask)
     #print(tasks[-1].getTitle()," ",tasks[-1].getDate())
@@ -24,7 +22,6 @@ def add():
 
 @app.route("/remove/<string:name>")
 def remove(name):
-    print(name)
     for i in range(len(tasks)):
         if tasks[i].getTitle()==name:
             tasks.remove(tasks[i])
@@ -33,13 +30,10 @@ def remove(name):
     
 @app.route("/addTag/<string:name>", methods=["POST"])
 def addTag(name):
-    print(name)
     for i in range(len(tasks)):
         if tasks[i].getTitle()==name:
-            print(i)
             break
-    print(tasks[i].getTags())
-    tasks[i].getTags().append(request.form.get(tasks[i].getTitle()))
+    tasks[i].addTag(request.form.get(tasks[i].getTitle()))
     return redirect(url_for("index"))
     
 if __name__ == "__main__":
