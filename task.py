@@ -14,5 +14,11 @@ class Task:
 
     def getTags(self):
         return self.tags
+    
+    def tagsToString(self):
+        toReturn = ""
+        for i in range(len(self.getTags())):
+            toReturn+=(self.getTags()[i]+", ")
+        return toReturn
 
 

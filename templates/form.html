@@ -29,9 +29,15 @@
             </div>
         </form>
         {% for i in tasks %}
-            <p> {{i}} </p>
-            <a href="/remove/{{i}}">remove</a>
-                
+            <h2> {{i.title}} </h2>
+            <p>Tags: {{i.tagsToString()}}</p>
+            <form action="/addTag/{{i.title}}" method="post">
+                <div>
+                    <input type = "text" name = "tag" placeholder = "Add tag">
+                    <button type = "submit">Add</button>
+                </div>
+            </form> 
+            <a href="/remove/{{i}}">Remove Task</a>
         {% endfor %}
     </body>
 </html>
