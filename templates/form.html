@@ -31,13 +31,13 @@
         {% for i in tasks %}
             <h2> {{i.title}} </h2>
             <p>Tags: {{i.tagsToString()}}</p>
-            <form action="/addTag/{{i.title}}" method="post">
+            <form action="/addTag/{{i.getTitle()}}" method="post">
                 <div>
-                    <input type = "text" name = "tag" placeholder = "Add tag">
+                    <input type = "text" name = {{i.getTitle()}} placeholder = "Add tag">
                     <button type = "submit">Add</button>
                 </div>
             </form> 
-            <a href="/remove/{{i}}">Remove Task</a>
+            <a href="/remove/{{i.getTitle()}}">Remove Task</a>
         {% endfor %}
     </body>
 </html>

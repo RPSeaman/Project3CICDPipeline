@@ -15,7 +15,7 @@ def add():
     
     title = request.form.get("task")
     print(title)
-    newTask = task.Task(title)
+    newTask = task.Task(title,[])
     tasks.append(newTask)
     #print(tasks[-1].getTitle()," ",tasks[-1].getDate())
 
@@ -24,15 +24,22 @@ def add():
 
 @app.route("/remove/<string:name>")
 def remove(name):
-    tasks.remove(name)
+    print(name)
+    for i in range(len(tasks)):
+        if tasks[i].getTitle()==name:
+            tasks.remove(tasks[i])
+            break
     return redirect(url_for("index"))
     
 @app.route("/addTag/<string:name>", methods=["POST"])
 def addTag(name):
+    print(name)
     for i in range(len(tasks)):
         if tasks[i].getTitle()==name:
-            tasks[i].tags.append(request.form.get("tag"))
+            print(i)
             break
+    print(tasks[i].getTags())
+    tasks[i].getTags().append(request.form.get(tasks[i].getTitle()))
     return redirect(url_for("index"))
     
 if __name__ == "__main__":
