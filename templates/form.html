@@ -7,21 +7,18 @@
         
         <p>Today's Date is:  <span id='Date'></span></p>
         <p>The time is:  <span id='Time'></span></p>
-        <p>The Date and Time is:  <span id='DateTime'></span></p>
         <br>
         <h3> Add a new item:</h3>
             <script>
             var current_td_info = new Date();
             var theDate = current_td_info.getMonth() + "-" 
-                        + current_td_info.getDay() + "-"
+                        + current_td_info.getDate() + "-"
                         + current_td_info.getFullYear();
 
             var theTime = current_td_info.getHours() + ":"
                         + current_td_info.getMinutes();
-            var dateTime = theDate + " | " + theTime;
             document.getElementById('Date').innerHTML=theDate;
             document.getElementById('Time').innerHTML=theTime;
-            document.getElementById('DateTime').innerHTML=dateTime;
             </script>
         <form action="/add" method="post">
             <div>
