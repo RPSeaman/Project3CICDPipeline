@@ -1,9 +1,9 @@
 from datetime import datetime
 class Task:
-    def __init__(self,title = "Untitled",tags = []):
+    def __init__(self,title = "Untitled",tags = [],date = ""):
         dateObj = datetime.now()
         self.title = title
-        self.date = dateObj.strftime("%m/%d/%y %H:%M %Z")
+        self.date = dateObj.strftime("%m/%d/%y %H:%M")
         self.tags = tags
     
     def getTitle(self):

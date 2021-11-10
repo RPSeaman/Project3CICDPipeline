@@ -30,6 +30,7 @@
         </form>
         {% for i in tasks %}
             <h2> {{i.title}} </h2>
+            <p>Date created: {{i.date}}</p>
             <p>Tags: {{i.tagsToString()}}</p>
             <form action="/addTag/{{i.getTitle()}}" method="post">
                 <div>
