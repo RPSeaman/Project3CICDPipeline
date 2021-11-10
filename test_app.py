@@ -1,5 +1,4 @@
 from app import *
-import task
 #ds
 
 # websitePath = https://rh-to-do-list.herokuapp.com
@@ -8,7 +7,6 @@ import task
 
 
 def test_index():
-    
     client = app.test_client()
     response = client.get("/")
     assert response.status_code == 200
@@ -26,6 +24,7 @@ def test_add():
     assert b'test' in webpage_text
 
 def test_remove():
+    #add task
     client = app.test_client()
     response = client.get("/")
     webpage_text = response.get_data()
@@ -36,12 +35,15 @@ def test_remove():
     response = client.get("/")
     webpage_text = response.get_data()
     assert b'test' in webpage_text
+
+    #test remove
     url = '/remove/test'
     response = client.get(url)
     webpage_text = response.get_data()
     assert (b'test' not in webpage_text)
 
 def test_addTag():
+    #add task
     client = app.test_client()
     response = client.get("/")
     webpage_text = response.get_data()
@@ -51,9 +53,9 @@ def test_addTag():
     assert response.status_code == 302
     response = client.get("/")
     webpage_text = response.get_data()
-
-    
     assert b'test' in webpage_text
+
+    #add tag and test
     url = '/addTag/test'
     newTag = {'test':'testTag'}
     response = client.post(url,data=newTag)
