@@ -44,7 +44,7 @@ class Task:
         if priority == "High":
             self.color = "color:red;"
         if priority == "Medium":
-            self.color = "color:yellow;"
+            self.color = "color:orange;"
         if priority == "Low":
             self.color = "color:green;"
 
