@@ -27,15 +27,14 @@
                 <button type = "submit">Add</button>
             </div>
         </form>
-
+        <br>
 
 
         {% for i in tasks %}
             <h2> {{i.title}} </h2>
-
+            <p>Date created: {{i.date}}</p>
             <p>Priority: {{i.getPriority()}}</p>
             <p>Status: {{i.getStatus()}}</p>
-            <p>Date created: {{i.date}}</p>
             <p>Tags: {{i.tagsToString()}}</p>
 
             <div>
