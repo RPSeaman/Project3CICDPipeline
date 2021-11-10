@@ -3,7 +3,7 @@ class Task:
     def __init__(self,title = "Untitled",tags = [],priority="",status=""):
         dateObj = datetime.now()
         self.title = title
-        self.date = dateObj.strftime("%m/%d/%y %H:%M %Z")
+        self.date = dateObj.strftime("%m/%d/%y %H:%M")
         self.tags = tags
         self.priority = priority
         self.status = status
