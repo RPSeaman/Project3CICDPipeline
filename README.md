@@ -4,6 +4,6 @@
 
 
 ## Welcome!!
-Welcome to the repository for your 'To-Do List'.
+Welcome to the repository for your `To-Do List`.
 
 
