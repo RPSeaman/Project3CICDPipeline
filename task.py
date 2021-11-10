@@ -7,6 +7,7 @@ class Task:
         self.tags = tags
         self.priority = priority
         self.status = status
+        self.color = ""
     
     def getTitle(self):
         return self.title
@@ -38,3 +39,12 @@ class Task:
         
     def changePriority(self,priority):
         self.priority = priority
+        if(priority=="High"):
+            self.color="color:red;"
+        if(priority=="Medium"):
+            self.color="color:yellow;" 
+        if(priority=="Low"):
+            self.color="color:green;"
+    
+    def getColor(self):
+        return self.color

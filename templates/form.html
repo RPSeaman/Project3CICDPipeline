@@ -33,7 +33,7 @@
         {% for i in tasks %}
             <h2> {{i.title}} </h2>
 
-            <p>Priority: {{i.getPriority()}}</p>
+            <p  style={{i.getColor()}}>Priority: {{i.getPriority()}}</p>
             <p>Status: {{i.getStatus()}}</p>
             <p>Date created: {{i.date}}</p>
             <p>Tags: {{i.tagsToString()}}</p>
