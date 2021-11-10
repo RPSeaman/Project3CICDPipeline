@@ -28,6 +28,28 @@ def remove(name):
             break
     return redirect(url_for("index"))
     
+@app.route("/updatePriority/<string:name>", methods=["POST"])
+def updatePriority(name):
+    print(name)
+    for i in range(len(tasks)):
+        if tasks[i].getTitle()==name:
+            print(i)
+            break
+    tasks[i].changePriority(request.form.get(tasks[i].getTitle()))
+    return redirect(url_for("index"))
+
+@app.route("/updateStatus/<string:name>", methods=["POST"])
+def updateStatus(name):
+    print(name)
+    for i in range(len(tasks)):
+        if tasks[i].getTitle()==name:
+            print(i)
+            break
+    tasks[i].changeStatus(request.form.get(tasks[i].getTitle()))
+    return redirect(url_for("index"))
+
+
+
 @app.route("/addTag/<string:name>", methods=["POST"])
 def addTag(name):
     for i in range(len(tasks)):

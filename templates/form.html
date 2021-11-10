@@ -1,13 +1,15 @@
 <!doctype html>
     <head>
-        <title>{"Hello!"}</title>
+        <title>The To-Do List for Studious Students!</title>
     </head>
     <body>
-        <h1>Hello there!</h1>
-        <br>
+        <h1>The To-Do List for Studious Students!</h1>
+        
         <p>Today's Date is:  <span id='Date'></span></p>
         <p>The time is:  <span id='Time'></span></p>
         <p>The Date and Time is:  <span id='DateTime'></span></p>
+        <br>
+        <h3> Add a new item:</h3>
             <script>
             var current_td_info = new Date();
             var theDate = current_td_info.getMonth() + "-" 
@@ -23,14 +25,45 @@
             </script>
         <form action="/add" method="post">
             <div>
-                <label for = "title">Tasks:</label>
-                <input type = "text" name = "task" placeholder = "Enter">
+                <label for = "title">Add Task:</label>
+                <input type = "text" name = "task" placeholder = "Task">
                 <button type = "submit">Add</button>
             </div>
         </form>
+
+
+
         {% for i in tasks %}
             <h2> {{i.title}} </h2>
+
+            <p>Priority: {{i.getPriority()}}</p>
+            <p>Status: {{i.getStatus()}}</p>
             <p>Tags: {{i.tagsToString()}}</p>
+
+            <div>
+                <form action="/updatePriority/{{i.getTitle()}}" method="post">
+                    <label for={{i.getTitle()}}>Update Priority:</label>
+                    <select name={{i.getTitle()}} id="priority" onchange=this.form.submit()>
+                        <option value="">Choose your Priority</option>
+                        <option value="High">HIGH</option>
+                        <option value="Medium">MEDIUM</option>
+                        <option value="Low">LOW</option>
+                    </select>
+                </form>
+
+                <form action="/updateStatus/{{i.getTitle()}}" method="post">
+                    <label for={{i.getTitle()}}>Update Status:</label>
+                        <select name={{i.getTitle()}} id="status" onchange=this.form.submit()>
+                            <option value="">Choose your Status</option>
+                            <option value="To Do">TO DO</option>
+                            <option value="Started">IN PROGRESS</option>
+                            <option value="Done">DONE</option>
+                                </select>
+                </form>
+            </div>
+
+
+
             <form action="/addTag/{{i.getTitle()}}" method="post">
                 <div>
                     <input type = "text" name = {{i.getTitle()}} placeholder = "Add tag">
